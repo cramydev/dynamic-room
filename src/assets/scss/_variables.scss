@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Open+Sans:wght@300;400;700&display=swap');
+
+// Screen size
+$screenSize_small: 320px;
+$screenSize_medium: 680px;
+$screenSize_full: 100%;
+
+// Font family
+$fontComforfaa: 'Comfortaa';
+$fontOpenSans: 'Open Sans';
+
+// Font size
+$titleFont: 30px;
+$infoFont: 16px;
+$smallInfoFont: 14px;
+
+// Font colors
+$errorFont: #f5222e;
+
+// Colors
+$blue1: #49D1D1;
+$blue2: #0D72B9;
+$blue3: #0D3688;
+$shadow_dark: rgba(143, 143, 143, 0.45);
+$boxShadow: 5px 5px 15px $shadow_dark;

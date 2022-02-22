@@ -1,0 +1,40 @@
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+
+.title {
+  font-size: $titleFont;
+}
+.info {
+  font-size: $infoFont;
+}
+.small-info {
+  font-size: $smallInfoFont;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+.bold {
+  font-weight: 600;
+}
+.normal {
+  font-weight: normal;
+}
+
+.error-message {
+  text-align: center;
+  font-size: $smallInfoFont;
+  color: $errorFont;
+}
+
+.router-link-active {
+  font-weight: 600;
+}
+
+.font-white {
+  color: #fff;
+}

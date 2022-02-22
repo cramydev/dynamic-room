@@ -1,0 +1,15 @@
+button {
+  outline: none;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background: #e5e5e5;
+  color: #4d4d4d;
+}
+
+.button-primary {
+  background: $blue3;
+  color: #fff;
+}

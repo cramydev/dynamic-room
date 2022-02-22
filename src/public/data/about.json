@@ -1,0 +1,26 @@
+{
+  "about": {
+    "title": "Acerca del proyecto",
+    "information": "Este proyecto simula lo que sería la creación y manejo de salas; está enfocado principalmente en salas de cine. Sin embargo, la misma analogía podría usarse para otros tipos o modelos de negocio.\n\n Estas son las consideraciones que se tomaron en cuenta y sus funcionalidades actuales:",
+    "considerations": [
+      "- Se establecio como máximo que una sala tendrá hasta 200 puestos, por lo que se está trabajando con una matriz de 10x20: 10 filas por 20 columnas.",
+      "- Como mínimo se establecío que la matríz sea de 5x10.",
+      "- Los límites mínimos y máximos pueden cambiarse según requerimientos.",
+      "- Por defecto, el número de filas y columnas serán las máximas, sin embargo esto podrá modificarse.",
+      "- Por defecto, todos los puestos estarán marcados como <strong>Disponibles</strong>, sin embargo esto puede cambiarse presionando cada puesto."
+    ],
+    "functionalities": [
+      "- Creación de sala.",
+      "- Visualización de salas creadas.",
+      "- Realizar reserva fake. Solo se verá la interacción de seleccionar un puesto para reservar."
+    ],
+    "notes": [
+      "- Este sitio guarda la información dentro de la memoría del navegador. Hasta ahora, no se tiene ninguna interacción con base de datos. Posiblemente lo realice pronto.",
+      "- El funcionamiento de cada posición puede variar según requerimientos, es decir, existe la posibilidad de poder establecer que cada posición sea un puesto disponible, un puesto no disponible o un espacio vacío haciendo referencia a pasillos. Sin embargo, para este demo este no es el caso.",
+      "- En la interacción de la reserva fake, solamente se ve cuando un usuario quiere seleccionar un puesto. No existe indicador para saber si un puesto ya esta reservado o no, esto podría venir cuando se tenga una interacción con base de datos."
+    ],
+    "issues": [
+      "- Por ahora, en versión responsive es algo incomodo utilizar el mapa. Recomiendo usarlo en versión desktop. Esto aplica dependiendo del tamaño del mapa o la cantidad de puestos."
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+@mixin alignCenterCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin alignLeftCenter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin alignAroundCenter {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@mixin alignBetweenCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin alignLeft {
+  display: flex;
+  justify-content: flex-start;
+}

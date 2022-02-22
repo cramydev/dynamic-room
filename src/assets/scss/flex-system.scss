@@ -1,0 +1,19 @@
+.align-center-center {
+  @include alignCenterCenter
+}
+.align-left-center {
+  @include alignLeftCenter;
+}
+.align-around-center {
+  @include alignAroundCenter;
+}
+.align-between-center {
+  @include alignBetweenCenter;
+}
+.align-left {
+  @include alignLeft;
+}
+
+.flex-col {
+  flex-direction: column !important;
+}

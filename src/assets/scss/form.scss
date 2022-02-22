@@ -1,0 +1,17 @@
+.small-form {
+  width: 500px;
+  margin: 0 auto;
+}
+
+input {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+@media (max-width: $screenSize_medium) {
+  .small-form {
+    width: 100%;
+  }
+}
