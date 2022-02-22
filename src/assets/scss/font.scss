@@ -30,6 +30,11 @@
   font-size: $smallInfoFont;
   color: $errorFont;
 }
+.success-message {
+  text-align: center;
+  font-size: $infoFont;
+  color: $successFont;
+}
 
 .router-link-active {
   font-weight: 600;

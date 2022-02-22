@@ -3,7 +3,7 @@
     <div class="small-form box-properties p-20">
       <div class="align-left flex-col mb-10 text-left">
         <label class="info mr-5">Nombre de la sala: </label>
-        <input type="text" v-model="room.name" />
+        <input type="text" v-model="room.name" @click="clearMessages" />
       </div>
 
       <div class="align-center-center mb-10">
@@ -19,6 +19,7 @@
       </div>
 
       <p class="error-message my-10" v-if="errorMessage">{{ errorMessage }}</p>
+      <p class="success-message my-10" v-if="successMessage">{{ successMessage }}</p>
 
       <div class="align-center-center mt-20">
         <button class="mr-10" @click="$router.push({name: 'Rooms'})">Volver</button>
@@ -46,24 +47,8 @@
       <Map 
         :drawMap="room.drawMap"
         @handlePlace="handlePlace"
+        :reservation="false"
       />
-
-      <!-- <div class="room-places my-40">
-        <div class="align-center-center mb-10" v-for="(row, index) in room.drawMap" :key="index">
-
-          <div class="place" v-for="(place, subindex) in row" :key="subindex">
-            <div class="place-item mx-5 align-center-center flex-col pointer" @click="handlePlace(place.placeName, index, subindex)">
-              <img src="../assets/icons/available-chair-icon.svg" alt="chair-icon" v-if="place.available"/>
-              <img src="../assets/icons/unavailable-chair-icon.svg" alt="chair-icon" v-else-if="!place.available"/>
-              <p class="small-info bold">{{ place.placeName }}</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="room-screen">
-          <p class="info bold uppercase text-center">Pantalla</p>
-        </div>
-      </div> -->
 
       <p class="error-message my-10" v-if="errorMessage">{{ errorMessage }}</p>
 
@@ -98,9 +83,8 @@ export default defineComponent({
   setup(){
     let rowsMax = ref(10)
     let columnsMax = ref(20)
-    // let drawMap = ref([] as [Place][])
-    let drawMap = ref([] as any[])
     let errorMessage = ref('')
+    let successMessage = ref('')
 
     const state = reactive({
       room: {
@@ -137,8 +121,6 @@ export default defineComponent({
       } else {
         state.room.places = []
         state.room.drawMap = []
-        // state.room.name = ''
-        // state.room.slug = ''
         errorMessage.value = ''
 
         state.room.slug = slugify(state.room.name.trim(), {
@@ -202,19 +184,26 @@ export default defineComponent({
 
         resetValues()
         state.room.name = ''
+        successMessage.value = "Sala creada 👍."
       }
+    }
+
+    function clearMessages() {
+      errorMessage.value = ''
+      successMessage.value = ''
     }
     
     return {
       ...toRefs(state),
       rowsMax,
       columnsMax,
-      drawMap,
+      successMessage,
       errorMessage,
       nextStep,
       handlePlace,
       cancel,
-      createRoom
+      createRoom,
+      clearMessages
     }
   },
 });
@@ -233,37 +222,5 @@ export default defineComponent({
   .indicator-2 {
     background: #c4c4c4;
   }
-
-  // .room-places {
-  //   width: 100%;
-  //   // .place-letter {
-  //   //   width: 20px;
-  //   //   height: 100%;
-  //   // }
-  
-  //   .place {
-  //     width: 50px;
-  //     height: 50px;
-  
-  //     .place-item {
-  //       img {
-  //         width: 100%;
-  //         height: 100%;
-  //       }
-  //     }
-  //   }
-
-  //   .room-screen {
-  //     width: 90%;
-  //     height: 70px;
-  //     background: #ccc;
-  //     margin: 40px auto 0 auto;
-  //     @include alignCenterCenter;
-
-  //     p {
-  //       letter-spacing: 5px;
-  //     }
-  //   }
-  // }
 }
 </style>

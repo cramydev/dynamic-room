@@ -1,7 +1,7 @@
 <template>
   <div id="c-header">
-    <div class="responsive-element sub-header">
-      <p class="text-center info">
+    <div class="responsive-element sub-header py-5">
+      <p class="text-center small-info">
         <a class="font-white" href="https://cramydev.netlify.app" target="_blank" rel="noopener noreferrer nofollow">Visita mi sitio web 😁</a>
       </p>
     </div>
@@ -17,7 +17,7 @@
       <Menu />
 
       <div class="right-side desktop-element">
-        <p class="text-center info">
+        <p class="text-center small-info">
           <a class="font-white" href="https://cramydev.netlify.app" target="_blank" rel="noopener noreferrer nofollow">Visita mi sitio web 😁</a>
         </p>
       </div>
@@ -45,8 +45,7 @@ export default defineComponent({
   .sub-header {
     background: $blue2;
     width: 100%;
-    height: 40px;
-    @include alignCenterCenter;
+    max-height: 40px;
   }
   .main-header {
     background: $blue3;

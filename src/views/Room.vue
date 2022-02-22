@@ -25,23 +25,6 @@
         @handlePlace="handlePlace"
       />
 
-      <!-- <div class="room-places my-40">
-        <div class="align-center-center mb-10" v-for="(row, index) in room.drawMap" :key="index">
-
-          <div class="place" v-for="(place, subindex) in row" :key="subindex">
-            <div class="place-item mx-5 align-center-center flex-col pointer" @click="handlePlace(place.placeName, index, subindex)">
-              <img src="../assets/icons/available-chair-icon.svg" alt="chair-icon" v-if="place.available"/>
-              <img src="../assets/icons/unavailable-chair-icon.svg" alt="chair-icon" v-else-if="!place.available"/>
-              <p class="small-info bold">{{ place.placeName }}</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="room-screen">
-          <p class="info bold uppercase text-center">Pantalla</p>
-        </div>
-      </div> -->
-
       <p class="error-message my-10" v-if="errorMessage">{{ errorMessage }}</p>
 
       <div class="align-center-center mt-20">
@@ -79,8 +62,6 @@ export default defineComponent({
       if (rooms) {
         room.value = JSON.parse(rooms).find((item: Room) => item.slug == route.params.roomName)
       }
-
-      console.log('room.value', room.value)
     })
 
     function cancel(e: any) {
@@ -144,37 +125,5 @@ export default defineComponent({
   .indicator-2 {
     background: #c4c4c4;
   }
-
-  // .room-places {
-  //   width: 100%;
-  //   // .place-letter {
-  //   //   width: 20px;
-  //   //   height: 100%;
-  //   // }
-  
-  //   .place {
-  //     width: 50px;
-  //     height: 50px;
-  
-  //     .place-item {
-  //       img {
-  //         width: 100%;
-  //         height: 100%;
-  //       }
-  //     }
-  //   }
-
-    // .room-screen {
-    //   width: 90%;
-    //   height: 70px;
-    //   background: #ccc;
-    //   margin: 40px auto 0 auto;
-    //   @include alignCenterCenter;
-
-    //   p {
-    //     letter-spacing: 5px;
-    //   }
-    // }
-  // }
 }
 </style>

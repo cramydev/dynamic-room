@@ -9,7 +9,7 @@
             class="place-item mx-5 align-center-center flex-col pointer" 
             @click="reservation ? handleReservationPlace(place.placeName, index, subindex) : handlePlace(place.placeName, index, subindex)"
           >
-            <div class="m-0 p-0" v-if="reservation">
+            <div v-if="reservation">
               <Place 
                 :available="place.available"
                 :selected="selectedPlace"
@@ -17,20 +17,16 @@
                 :subindex="subindex"
                 :currentIndex="currentIndex"
                 :currentSubindex="currentSubindex"
+                :reservation="true"
               />
-              <!-- <img src="../../assets/icons/selected-chair-icon.svg" alt="chair-icon" v-if="place.available && selectedPlace && currentIndex == index && currentSubindex == subindex"/>
-              <img src="../../assets/icons/available-chair-icon.svg" alt="chair-icon" v-else-if="place.available"/>
-              <img src="../../assets/icons/unavailable-chair-icon.svg" alt="chair-icon" v-else-if="!place.available"/> -->
             </div>
-            <div class="m-0 p-0" v-else>
+            <div v-else>
               <Place 
                 :available="place.available"
-                :selected="selectedPlace"
                 :index="index"
                 :subindex="subindex"
+                :reservation="false"
               />
-              <!-- <img src="../../assets/icons/available-chair-icon.svg" alt="chair-icon" v-if="place.available"/>
-              <img src="../../assets/icons/unavailable-chair-icon.svg" alt="chair-icon" v-else-if="!place.available"/> -->
             </div>
             
             <p class="place-name small-info bold text-center desktop-element">{{ place.placeName }}</p>
@@ -91,8 +87,6 @@ export default defineComponent({
     })
 
     const checkMap = watch(() => props.drawMap, (newValue, oldValue) => {
-      console.log('newValue', newValue)
-
       if (newValue) {
         currentMap.value = newValue
       }
