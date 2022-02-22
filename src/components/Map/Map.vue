@@ -7,7 +7,7 @@
         <div class="place" v-for="(place, subindex) in row" :key="subindex">
           <div 
             class="place-item mx-5 align-center-center flex-col pointer" 
-            @click="reservation ? handleReservationPlace(place.placeName, index, subindex) : handlePlace(place.placeName, index, subindex)"
+            @click="reservation ? handleReservationPlace(place.placeName, place.available, index, subindex) : handlePlace(place.placeName, index, subindex)"
           >
             <div v-if="reservation">
               <Place 
@@ -92,17 +92,19 @@ export default defineComponent({
       }
     })
     
-    function handleReservationPlace(placeName: string, index: number, subindex: number) {
-      if (currentIndex.value == index && currentSubindex.value == subindex) {
-        selectedPlace.value = false
-        currentPlaceName.value = ''
-      } else {
-        selectedPlace.value = true
-        currentPlaceName.value = placeName
+    function handleReservationPlace(placeName: string, available: boolean, index: number, subindex: number) {
+      if (available) {
+        if (currentIndex.value == index && currentSubindex.value == subindex) {
+          selectedPlace.value = false
+          currentPlaceName.value = ''
+        } else {
+          selectedPlace.value = true
+          currentPlaceName.value = placeName
+        }
+  
+        currentIndex.value = index
+        currentSubindex.value = subindex
       }
-
-      currentIndex.value = index
-      currentSubindex.value = subindex
     }
 
     function handlePlace(placeName: string, index: number, subindex: number) {
