@@ -118,6 +118,10 @@ export default defineComponent({
 
       if (!state.room.name) {
         errorMessage.value = "Debes indicar un nombre a la sala."
+      } else if (state.room.rows > rowsMax.value) {
+        errorMessage.value = `La cantidad de filas no debe ser mayor a ${rowsMax.value}.`
+      } else if (state.room.columns > columnsMax.value) {
+        errorMessage.value = `La cantidad de columnas no debe ser mayor a ${columnsMax.value}.`
       } else {
         state.room.places = []
         state.room.drawMap = []
